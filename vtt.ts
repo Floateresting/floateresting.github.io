@@ -7,11 +7,11 @@ interface Subtitle {
 class VTT {
     subtitles: Subtitle[] = [];
     constructor(vtt: string) {
-
+        this.parse(vtt);
     }
 
     private toSeconds(t: string): number {
-        let s = 0.0
+        let s = 0.0;
         t.split(':').forEach(p => s = s * 60 + parseFloat(p));
         return s;
     }
@@ -24,7 +24,7 @@ class VTT {
             lines = cue.split('\n');
             // first line is the timestamp
             [start, end] = lines.shift()!
-                .split('  -->  ')
+                .split(' --> ')
                 .map(l => this.toSeconds(l));
 
             this.subtitles.push({
@@ -34,5 +34,30 @@ class VTT {
                 subtitle: lines.join('\n')
             });
         }
+    }
+
+    play($element: JQuery, currentTime: Function) {
+        let subs = this.subtitles;
+        console.log(subs);
+        let next = 0, now: number;
+        let interval = setInterval(function () {
+            // stop the interval when reaches the end
+            if (next == subs.length) {
+                clearInterval(interval);
+                $element.text('');
+                console.log('done');
+                return;
+            }
+
+            now = currentTime();
+            console.log(now);
+            // if new cue arrives
+            if (subs[next].start < now) {
+                $element.text(subs[next++].subtitle);
+                // else if current cue ends
+            } else if (next && now < subs[next - 1].end) {
+                $element.text('');
+            }
+        }, 1000);
     }
 }

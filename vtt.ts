@@ -6,14 +6,29 @@ interface Subtitle {
 
 class VTT {
     subtitles: Subtitle[];
-    constructor(vtt: string) {
+    e: JQuery;
+    isPaused: boolean;
+    interval: number = 0;
+    constructor(vtt: string, $element: JQuery) {
         this.subtitles = this.parse(vtt);
+        this.e = $element.text('');
+        this.isPaused = false;
     }
 
     private toSeconds(t: string): number {
         let s = 0.0;
         t.split(':').forEach(p => s = s * 60 + parseFloat(p));
         return s;
+    }
+
+    private getIndex(time: number): number {
+        let i = 0;
+        while (i < this.subtitles.length) {
+            if (time < this.subtitles[i++].end) {
+                break;
+            }
+        }
+        return i - 1;
     }
 
     parse(vtt: string) {
@@ -39,25 +54,30 @@ class VTT {
         return subs;
     }
 
-    play($element: JQuery, currentTime: Function) {
-        let subs = this.subtitles;
-        let next = 0, now: number;
-        let interval = setInterval(function () {
+    stop() {
+        clearInterval(this.interval);
+    }
+
+    startAt(time: number) {
+        this.isPaused = false;
+        let next = this.getIndex(time);
+        console.log(next);
+        this.interval = setInterval(() => {
             // stop the interval when reaches the end
-            if (next == subs.length) {
-                clearInterval(interval);
-                $element.text('');
+            if (next == this.subtitles.length) {
+                this.stop();
+                this.e.text('');
                 return;
             }
 
-            now = currentTime();
-            // if new cue arrives
-            if (subs[next].start < now) {
-                $element.text(subs[next++].subtitle);
-                // else if current cue ends
-            } else if (next && now < subs[next - 1].end) {
-                $element.text('');
+            time += 0.1;
+            // if new line arrives
+            if (this.subtitles[next].start < time) {
+                this.e.text(this.subtitles[next++].subtitle);
+                // else if current line ends
+            } else if (next && this.subtitles[next - 1].end < time) {
+                this.e.text('');
             }
-        }, 1000);
+        }, 100);
     }
 }

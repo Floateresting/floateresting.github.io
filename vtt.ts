@@ -41,19 +41,16 @@ class VTT {
 
     play($element: JQuery, currentTime: Function) {
         let subs = this.subtitles;
-        console.log(subs);
         let next = 0, now: number;
         let interval = setInterval(function () {
             // stop the interval when reaches the end
             if (next == subs.length) {
                 clearInterval(interval);
                 $element.text('');
-                console.log('done');
                 return;
             }
 
             now = currentTime();
-            console.log(now);
             // if new cue arrives
             if (subs[next].start < now) {
                 $element.text(subs[next++].subtitle);

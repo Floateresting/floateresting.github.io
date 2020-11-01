@@ -9,6 +9,7 @@ class VTT {
     e: JQuery;
     isPaused: boolean;
     interval: number = 0;
+    i = 0.1;
     constructor(vtt: string, $element: JQuery) {
         this.subtitles = this.parse(vtt);
         this.e = $element.text('');
@@ -61,6 +62,7 @@ class VTT {
     startAt(time: number) {
         this.isPaused = false;
         let next = this.getIndex(time);
+        let t: number;
         console.log(next);
         this.interval = setInterval(() => {
             // stop the interval when reaches the end
@@ -70,14 +72,21 @@ class VTT {
                 return;
             }
 
-            time += 0.1;
+            time += this.i;
+
             // if new line arrives
             if (this.subtitles[next].start < time) {
                 this.e.text(this.subtitles[next++].subtitle);
-                // else if current line ends
-            } else if (next && this.subtitles[next - 1].end < time) {
-                this.e.text('');
+                return;
             }
-        }, 100);
+            // else if current line ends
+            if (next) {
+                t = this.subtitles[next - 1].end;
+                // if the subtitle just ended
+                if (time - this.i < t && t < time) {
+                    this.e.text('');
+                }
+            }
+        }, this.i * 1000);
     }
 }

@@ -5,9 +5,9 @@ interface Subtitle {
 }
 
 class VTT {
-    subtitles: Subtitle[] = [];
+    subtitles: Subtitle[];
     constructor(vtt: string) {
-        this.parse(vtt);
+        this.subtitles = this.parse(vtt);
     }
 
     private toSeconds(t: string): number {
@@ -17,6 +17,7 @@ class VTT {
     }
 
     parse(vtt: string) {
+        let subs: Subtitle[] = [];
         let lines: string[];
         let start: number, end: number;
         // slice(1) because the first line is 'WEBVTT'
@@ -27,13 +28,15 @@ class VTT {
                 .split(' --> ')
                 .map(l => this.toSeconds(l));
 
-            this.subtitles.push({
+            subs.push({
                 start: start,
                 end: end,
                 // the rest is subtitle
                 subtitle: lines.join('\n')
             });
         }
+
+        return subs;
     }
 
     play($element: JQuery, currentTime: Function) {

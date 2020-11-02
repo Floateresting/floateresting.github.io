@@ -71,7 +71,7 @@ class VTT {
             time += this.int;
 
             // if new line arrives
-            if (this.subtitles[next].start < time) {
+            if (this.subtitles[next].start < time - this.int) {
                 this.$element.text(this.subtitles[next++].subtitle);
                 return;
             }

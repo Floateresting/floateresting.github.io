@@ -71,11 +71,11 @@ class VTT {
             time += this.int;
 
             // if new line arrives
-            if (this.subtitles[next].start < time - this.int) {
+            if (this.subtitles[next].start < time + this.int) {
                 this.$element.text(this.subtitles[next++].subtitle);
                 return;
             }
-            // else if current line ends
+            // no need to remove the subtitle if it's the 0th one
             if (next) {
                 end = this.subtitles[next - 1].end;
                 // if the subtitle just ended

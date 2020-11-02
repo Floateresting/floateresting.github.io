@@ -6,14 +6,12 @@ interface Subtitle {
 
 class VTT {
     subtitles: Subtitle[];
-    e: JQuery;
-    isPaused: boolean;
+    $element: JQuery;
     interval: number = 0;
-    i = 0.1;
+    int = 0.1;
     constructor(vtt: string, $element: JQuery) {
         this.subtitles = this.parse(vtt);
-        this.e = $element.text('');
-        this.isPaused = false;
+        this.$element = $element.text('');
     }
 
     private toSeconds(t: string): number {
@@ -60,33 +58,31 @@ class VTT {
     }
 
     startAt(time: number) {
-        this.isPaused = false;
         let next = this.getIndex(time);
-        let t: number;
-        console.log(next);
+        let end: number;
         this.interval = setInterval(() => {
             // stop the interval when reaches the end
             if (next == this.subtitles.length) {
                 this.stop();
-                this.e.text('');
+                this.$element.text('');
                 return;
             }
 
-            time += this.i;
+            time += this.int;
 
             // if new line arrives
             if (this.subtitles[next].start < time) {
-                this.e.text(this.subtitles[next++].subtitle);
+                this.$element.text(this.subtitles[next++].subtitle);
                 return;
             }
             // else if current line ends
             if (next) {
-                t = this.subtitles[next - 1].end;
+                end = this.subtitles[next - 1].end;
                 // if the subtitle just ended
-                if (time - this.i < t && t < time) {
-                    this.e.text('');
+                if (time - this.int < end && end < time) {
+                    this.$element.text('');
                 }
             }
-        }, this.i * 1000);
+        }, this.int * 1000);
     }
 }

@@ -9,8 +9,8 @@ class VTT {
     $element: JQuery;
     interval: number = 0;
     int = 0.1;
-    constructor(vtt: string, $element: JQuery) {
-        this.subtitles = this.parse(vtt);
+    constructor($element: JQuery) {
+        this.subtitles = this.parse($element.text());
         this.$element = $element.text('');
     }
 

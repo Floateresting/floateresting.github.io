@@ -11,7 +11,7 @@ class VTT {
     int = 0.1;
     constructor($element: JQuery) {
         this.subtitles = this.parse($element.text());
-        this.$element = $element.text('');
+        this.$element = $element.css('display', '').text('');
     }
 
     private toSeconds(t: string): number {

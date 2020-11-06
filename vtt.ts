@@ -109,4 +109,4 @@ function play(element: JQuery) {
         }
     }
     console.log(subtitles);
-}
+} 

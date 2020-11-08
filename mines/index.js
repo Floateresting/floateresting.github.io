@@ -1,6 +1,13 @@
-import getQuery from '../getquery';
-var width = 10, height = 10, density = 10;
-// var m = new Minesweeper($('table').get(0) as HTMLTableElement, width, height, density);
-// m.initialize();
-// m.generateAt(0);
-console.log(getQuery('height', 'width', 'density'));
+"use strict";
+const inputs = ['#width', '#height', '#density'].map(i => $(i).get(0));
+// parse query string 
+queryToInput(...inputs.map(i => i.id));
+$('button').on('click', () => {
+    var ms = new Minesweeper($('table').get(0), ...inputs.map(i => +i.value));
+    $('tbody').empty();
+    ms.initialize();
+    $('td').each(function (i) {
+        this.addEventListener('click', () => ms.openAt(i));
+    });
+});
+$('button').trigger('click');

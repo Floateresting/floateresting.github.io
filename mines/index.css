@@ -2,6 +2,10 @@
     --accent:#39c5bb;
     --background:black;
 }
+@keyframes flash {
+    0%   {background-color: var(--accent);}
+    50% {background-color: var(--background);}
+}
 
 html{
     background-color: var(--background);
@@ -24,6 +28,14 @@ td{
 
 td.unopened{
     background-color: var(--accent) !important;
+}
+
+td:not(.unopened){
+    animation-name: flash;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: linear;
 }
 
 td.mine{

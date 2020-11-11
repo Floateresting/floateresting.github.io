@@ -23,6 +23,7 @@ class Minesweeper {
         this.player = { isPlaying: false, isDead: false };
         this.tds = [];
         let [w, h, d] = option;
+        console.log(option);
         // convert any invalid density to [0,100)
         d = Math.abs(d % 100);
         this.table = t;

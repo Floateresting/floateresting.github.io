@@ -4,15 +4,18 @@
 <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
-    <link rel="stylesheet" type="text/css" href="./index.css">
     <script type="application/javascript" src="../jquery-3.5.1.min.js"></script>
-    <title></title>
+    <style>
+    </style>
+    <title>Minesweeper</title>
 </head>
 
 <body>
-    <input type="number" value="10" id="width"></input>
-    <input type="number" value="10" id="height"></input>
-    <input type="number" value="10" id="density"></input>
+    <input type="text" value="#39c5bb" id="fg"></input>
+    <input type="text" value="black" id="bg"></input>
+    <input type="number" value="10" id="w"></input>
+    <input type="number" value="10" id="h"></input>
+    <input type="number" value="10" id="d"></input>
     <button>Start</button>
     <table>
         <tbody>
@@ -20,6 +23,7 @@
     </table>
 
 </body>
+<link rel="stylesheet" type="text/css" href="./index.css">
 <script type="text/javascript" src="../utils.js"></script>
 <script type="text/javascript" src="./minesweeper.js"></script>
 <script type="text/javascript" src="./index.js"></script>

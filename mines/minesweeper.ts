@@ -24,6 +24,7 @@ class Minesweeper {
      */
     constructor(t: HTMLTableElement, ...option: number[]) {
         let [w, h, d] = option;
+        console.log(option);
         // convert any invalid density to [0,100)
         d = Math.abs(d % 100);
 
@@ -117,7 +118,7 @@ class Minesweeper {
         }
     }
 
-    private searchAdjacent(i: number, condition: Function) {
+    private searchAdjacent(i: number, condition: Function): number[] {
         let t: HTMLElement;
         let ni;
         return this.delta.filter(d => {

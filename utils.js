@@ -9,9 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 /**
- * Parse query strings and add them to <input> tags by id
- * @param keys required keys
- * @returns true if query string is valid
+ * Parse query strings and replace them in their <input> tags by id
+ * @param keys keys to look for
  */
 function queryToInput(...keys) {
     let map = new Map();
@@ -19,14 +18,9 @@ function queryToInput(...keys) {
     window.location.search.substr(1).split('&').forEach(q => {
         pair = q.split('=');
         if (keys.includes(pair[0])) {
-            map.set(pair[0], pair[1]);
+            $('#' + pair[0])[0].value = pair[1];
         }
     });
-    if (map.size == keys.length) {
-        // set the values in <input>
-        keys.forEach(k => $('#' + k)[0].value = map.get(k));
-    }
-    return map.size == keys.length;
 }
 function sleep(ms) {
     return __awaiter(this, void 0, void 0, function* () {

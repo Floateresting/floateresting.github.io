@@ -1,14 +1,10 @@
-:root{
-    --accent:#39c5bb;
-    --background:black;
-}
 @keyframes flash {
-    0%   {background-color: var(--accent);}
-    100% {background-color: var(--background);}
+    0%   {background-color: var(--fg);}
+    100% {background-color: var(--bg);}
 }
 
 html{
-    background-color: var(--background);
+    background-color: var(--bg);
 }
 
 table{
@@ -23,18 +19,18 @@ td{
     font-size: 200%;
     font-family: "Century Gothic", sans-serif;
     padding: 0;
-    color: var(--accent);
+    color: var(--fg);
     text-align: center;
     user-select: none;
 }
 
 td.unopened{
-    background-color: var(--accent) !important;
+    background-color: var(--fg) !important;
 }
 
 td:not(.unopened){
     animation-name: flash;
-    animation-duration: 250ms;
+    animation-duration: 100ms;
     animation-iteration-count: 1;
     animation-direction: normal;
     animation-timing-function: linear;

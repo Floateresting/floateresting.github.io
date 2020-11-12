@@ -13,7 +13,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
  * @param keys keys to look for
  */
 function queryToInput(...keys) {
-    let map = new Map();
     let pair;
     window.location.search.substr(1).split('&').forEach(q => {
         pair = q.split('=');

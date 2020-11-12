@@ -3,7 +3,6 @@
  * @param keys keys to look for
  */
 function queryToInput(...keys: string[]) {
-    let map = new Map<string, string>();
     let pair;
     window.location.search.substr(1).split('&').forEach(q => {
         pair = q.split('=');

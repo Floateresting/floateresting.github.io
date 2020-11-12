@@ -1,6 +1,7 @@
 enum Tile {
     Mine = 'mine',
     Unopened = 'unopened',
+    Flagged = 'flagged'
 }
 
 interface Player {
@@ -87,6 +88,8 @@ class Minesweeper {
         while (ts.length) {
             i = ts.shift()!, td = this.tds[i];
             td.classList.remove(Tile.Unopened);
+            td.classList.remove(Tile.Flagged);
+
             await sleep(1);
             if (td.classList.contains(Tile.Mine)) {
                 // DEATH !!
@@ -109,14 +112,18 @@ class Minesweeper {
             if (!td.innerText) {
                 ts.push(...this.searchAdjacent(
                     i,
+                    // has to be unopened, no mine, no flagged
                     (t: HTMLTableCellElement, ni: number) => !ts.includes(ni)
-                        && !t.classList.contains(Tile.Mine)
                         && t.classList.contains(Tile.Unopened)
+                        && t.classList.length == 1
                 ));
             }
         }
     }
 
+    flagAt(i: number) {
+        this.tds[i].classList.toggle(Tile.Flagged);
+    }
     private searchAdjacent(i: number, condition: Function): number[] {
         let t: HTMLElement;
         let ni;

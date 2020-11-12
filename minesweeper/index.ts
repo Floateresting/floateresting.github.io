@@ -18,12 +18,13 @@ $('button').on('click', () => {
     updateColors();
     var ms = new Minesweeper(
         $('table').get(0) as HTMLTableElement,
-        ...inputs.map(i => +i.value).slice(2)
+        ...inputs.slice(2).map(i => +i.value)
     );
     $('tbody').empty();
     ms.initialize();
     $('td').each(function (i) {
-        this.addEventListener('click', () => ms.openAt(i));
+        $(this).on('click', () => ms.openAt(i));
+        $(this).on('contextmenu', () => { ms.flagAt(i); return false; });
     });
 });
 

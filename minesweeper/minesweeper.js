@@ -12,6 +12,7 @@ var Tile;
 (function (Tile) {
     Tile["Mine"] = "mine";
     Tile["Unopened"] = "unopened";
+    Tile["Flagged"] = "flagged";
 })(Tile || (Tile = {}));
 class Minesweeper {
     /**
@@ -80,6 +81,7 @@ class Minesweeper {
             while (ts.length) {
                 i = ts.shift(), td = this.tds[i];
                 td.classList.remove(Tile.Unopened);
+                td.classList.remove(Tile.Flagged);
                 yield sleep(1);
                 if (td.classList.contains(Tile.Mine)) {
                     // DEATH !!
@@ -98,12 +100,17 @@ class Minesweeper {
                 }
                 // if no adjecent mines
                 if (!td.innerText) {
-                    ts.push(...this.searchAdjacent(i, (t, ni) => !ts.includes(ni)
-                        && !t.classList.contains(Tile.Mine)
-                        && t.classList.contains(Tile.Unopened)));
+                    ts.push(...this.searchAdjacent(i, 
+                    // has to be unopened, no mine, no flagged
+                    (t, ni) => !ts.includes(ni)
+                        && t.classList.contains(Tile.Unopened)
+                        && t.classList.length == 1));
                 }
             }
         });
+    }
+    flagAt(i) {
+        this.tds[i].classList.toggle(Tile.Flagged);
     }
     searchAdjacent(i, condition) {
         let t;

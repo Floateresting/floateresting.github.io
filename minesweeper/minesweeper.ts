@@ -88,7 +88,6 @@ class Minesweeper {
         while (ts.length) {
             i = ts.shift()!, td = this.tds[i];
             td.classList.remove(Tile.Unopened);
-            td.classList.remove(Tile.Flagged);
 
             await sleep(1);
             if (td.classList.contains(Tile.Mine)) {
@@ -99,6 +98,7 @@ class Minesweeper {
                 $('td').removeClass(Tile.Unopened);
                 return;
             }
+            td.classList.remove(Tile.Flagged);
 
             // if every unopened tiles are mines
             if (this.tds.filter(t => t.classList.contains(Tile.Unopened))

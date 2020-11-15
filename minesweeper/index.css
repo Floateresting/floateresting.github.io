@@ -7,13 +7,6 @@
     100% {background-color: var(--bg);}
 }
 
-html{
-    background-color: var(--bg);
-}
-
-table{
-    border-collapse: collapse;
-}
 
 td{
     width: 50px;
@@ -52,8 +45,4 @@ td.flagged{
 td.flagged::after{
     content: "F";
     font-size: var(--font-size);
-}
-
-ul{
-    color: var(--fg);
 }

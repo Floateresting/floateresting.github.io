@@ -1,11 +1,3 @@
-html{
-    background-color: var(--bg);
-}
-
-table{
-    border: 10px solid var(--fg);
-}
-
 td{
     width: 100px;
     height: 100px;

@@ -1,6 +1,6 @@
 enum FlipTile {
     Flipped = 'flipped',
-    Answer = 'answer'
+    // Answer = 'answer'
 }
 
 class Flip {
@@ -60,7 +60,7 @@ class Flip {
         }
         while (n--) {
             this.flipAt(a[n]);
-            this.tds[a[n]].classList.toggle(FlipTile.Answer);
+            // this.tds[a[n]].classList.toggle(FlipTile.Answer);
         }
     }
 

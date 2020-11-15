@@ -35,8 +35,7 @@ class Minesweeper {
     initialize() {
         for (let h = 0; h < this.height; h++) {
             for (let w = 0, r = this.table.insertRow(0); w < this.width; w++) {
-                r.insertCell()
-                    .classList.add(Tile.Unopened);
+                r.insertCell().classList.add(Tile.Unopened);
             }
         }
         this.tds = $('td').get();

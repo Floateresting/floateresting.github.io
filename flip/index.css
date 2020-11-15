@@ -1,0 +1,21 @@
+html{
+    background-color: var(--bg);
+}
+
+table{
+    border: 10px solid var(--fg);
+}
+
+td{
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+    font-family: Ubuntu;
+    background-color: var(--fg);
+    padding: 0;
+}
+
+td.flipped{
+    background-color: var(--bg);
+}

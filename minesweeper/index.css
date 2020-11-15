@@ -58,3 +58,7 @@ td.flagged::after{
     content: "F";
     font-size: var(--font-size);
 }
+
+ul{
+    color: var(--fg);
+}

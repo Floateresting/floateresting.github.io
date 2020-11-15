@@ -2,11 +2,6 @@
     --font-size:30px;
 }
 
-polygon{
-    stroke-width: 10px;
-    stroke: var(--fg);
-}
-
 @keyframes flash {
     0%   {background-color: var(--fg);}
     100% {background-color: var(--bg);}

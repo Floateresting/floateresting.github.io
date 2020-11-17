@@ -45,14 +45,10 @@ class Minesweeper {
         let n = Math.floor(this.width * this.height * this.density / 100);
         // generate all indexes expect the 9 tiles around the first click
         let toDelete = this.delta.map(d => index + d);
-        let a = Array.from(Array(this.width * this.height), (_, i) => i)
+        let a = array(this.width * this.height)
             .filter(i => !(toDelete.includes(i) || i == index));
         // Fisher-Yates shuffle algorithm
-        let j;
-        for (let i = a.length; i--;) {
-            j = Math.floor(Math.random() * (i + 1));
-            [a[i], a[j]] = [a[j], a[i]];
-        }
+        shuffle(a);
         // select n mines
         for (let i = 0; i < n; i++) {
             this.tds[a[i]].classList.add(Tile.Mine);

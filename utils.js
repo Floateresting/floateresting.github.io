@@ -36,3 +36,20 @@ function sleep(ms) {
         return new Promise(r => setTimeout(r, ms));
     });
 }
+/**
+ * Generate an array from 0 to n
+ * @param n length of the array
+ */
+function array(n) {
+    return Array.from(Array(n), (_, i) => i);
+}
+/**
+ * Fisher-Yates shuffle algorithm
+ * @param a
+ */
+function shuffle(a) {
+    for (let i = a.length, j; i--;) {
+        j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+}

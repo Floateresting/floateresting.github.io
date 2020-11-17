@@ -53,11 +53,8 @@ class Flip {
 
     private shuffle() {
         let n = Math.floor(this.width * this.height * this.density / 100);
-        let a = Array.from(Array(this.width * this.height), (_, i) => i);
-        for (let i = a.length, j: number; i--;) {
-            j = Math.floor(Math.random() * (i + 1));
-            [a[i], a[j]] = [a[j], a[i]];
-        }
+        let a = array(this.width * this.height);
+        shuffle(a);
         while (n--) {
             this.flipAt(a[n]);
             // this.tds[a[n]].classList.toggle(FlipTile.Answer);

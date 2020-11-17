@@ -2,7 +2,7 @@
 var FlipTile;
 (function (FlipTile) {
     FlipTile["Flipped"] = "flipped";
-    FlipTile["Answer"] = "answer";
+    // Answer = 'answer'
 })(FlipTile || (FlipTile = {}));
 class Flip {
     /**
@@ -51,7 +51,7 @@ class Flip {
         }
         while (n--) {
             this.flipAt(a[n]);
-            this.tds[a[n]].classList.toggle(FlipTile.Answer);
+            // this.tds[a[n]].classList.toggle(FlipTile.Answer);
         }
     }
     *searchAdjacent(i) {

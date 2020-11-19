@@ -1,4 +1,11 @@
 "use strict";
+inputs = [
+    '#fg',
+    '#bg',
+    '#w',
+    '#h',
+    '#d'
+].map(i => $(i).get(0));
 // parse query string if possible
 queryToInput(...inputs.map(i => i.id));
 updateColors();

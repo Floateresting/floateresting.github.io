@@ -1,3 +1,11 @@
+inputs = [
+    '#fg',
+    '#bg',
+    '#w',
+    '#h',
+    '#d'
+].map(i => $(i).get(0) as HTMLInputElement);
+
 // parse query string if possible
 queryToInput(...inputs.map(i => i.id));
 updateColors();

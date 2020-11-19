@@ -1,10 +1,4 @@
-const inputs: HTMLInputElement[] = [
-    '#fg',
-    '#bg',
-    '#w',
-    '#h',
-    '#d'
-].map(i => $(i).get(0) as HTMLInputElement)
+var inputs: HTMLInputElement[];
 
 function updateColors() {
     $('style').text(`:root{--fg:${inputs[0].value};--bg:${inputs[1].value};}`)

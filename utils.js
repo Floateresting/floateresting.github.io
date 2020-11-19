@@ -8,13 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const inputs = [
-    '#fg',
-    '#bg',
-    '#w',
-    '#h',
-    '#d'
-].map(i => $(i).get(0));
+var inputs;
 function updateColors() {
     $('style').text(`:root{--fg:${inputs[0].value};--bg:${inputs[1].value};}`);
 }

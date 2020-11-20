@@ -40,3 +40,7 @@ function shuffle(a: number[]) {
         [a[i], a[j]] = [a[j], a[i]];
     }
 }
+
+$('#home')
+    .attr('src', window.location.href.split('/').slice(0, 4).join('/'))
+    .text('See home page for details');

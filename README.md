@@ -12,5 +12,8 @@ Minigames that I made when I feel unmotivated and bored
     - Goal
         - Unflip every tile (make every tile the same color as the table border)
 - [Arithmetic](./arithmetic/) (Started on 2020-10-31)
-# TODO
-1. Make the code less spaghetti
+    - Gameplay
+        - Enter the answer below the horizontal line
+        - If the input is not a number, the textbox will clear itself
+    - Goal
+        - Practise and have fun

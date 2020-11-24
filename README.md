@@ -1,4 +1,4 @@
-# floateresting.github.io
+# [Floateresting.github.io](https://floateresting.github.io)
 - [Kashi](https://floateresting.github.io/Kashi/)
   - List of my favorite Japanese songs (Created on 2020-07-17)
 - [Minigames](https://floateresting.github.io/Minigames/)

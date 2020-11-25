@@ -1,5 +1,5 @@
 # [Floateresting.github.io](https://floateresting.github.io)
-- [Kashi](https://floateresting.github.io/Kashi/)
+- [Kashi](https://floateresting.github.io/Kashi/) ([Repo](https://github.com/Floateresting/Kashi))
   - List of my favorite Japanese songs (Created on 2020-07-17)
-- [Minigames](https://floateresting.github.io/Minigames/)
+- [Minigames](https://floateresting.github.io/Minigames/) ([Repo](https://github.com/Floateresting/Minigames))
   - Minigames that I made when I feel unmotivated and bored (Created on 2020-10-13)

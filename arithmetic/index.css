@@ -1,0 +1,25 @@
+#content, table input{
+    font-size: 200px;
+    font-family: Ubuntu;
+}
+
+table tr:last-child td{
+    border-top: 5px solid var(--fg);
+}
+
+table input{
+    color: var(--fg);
+    background-color: var(--bg);
+    border: none;
+    width: 400px;
+}
+
+td{
+    text-align: end;
+    user-select: none;
+}
+
+/* Operator */
+td#operator{
+    font-family: Ubuntu Mono;
+}

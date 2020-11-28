@@ -1,0 +1,9 @@
+:root {
+    --accent:red ;
+}
+
+html {
+    background-color: #181a1b;
+    color: white;
+    font-size: 3em;
+}

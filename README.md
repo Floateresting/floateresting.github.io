@@ -1,6 +1,6 @@
 # Floateresting.github.io
 - url to this GitHub repo: [here](https://github.com/Floateresting/floateresting.github.io)
-- url to the website: [here](floateresting.github.io)
+- url to the website: [here](https://floateresting.github.io/)
 
 ## Websites
 - [Subtitle](./subtitle): a site where I test my vtt parser

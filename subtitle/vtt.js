@@ -1,9 +1,9 @@
 "use strict";
 var VTT = /** @class */ (function () {
-    function VTT($element) {
+    function VTT($element, subtitles) {
         this.interval = 0;
-        this.int = 0.1;
-        this.subtitles = this.parse($element.text());
+        this.refreshRate = 0.1;
+        this.subtitles = this.parse(subtitles);
         this.$element = $element.css('display', '').text('');
     }
     VTT.prototype.toSeconds = function (t) {
@@ -27,7 +27,7 @@ var VTT = /** @class */ (function () {
         var lines;
         var start, end;
         // slice(1) because the first line is 'WEBVTT'
-        for (var _i = 0, _b = vtt.split('\n\n').map(function (c) { return c.trim(); }).slice(1); _i < _b.length; _i++) {
+        for (var _i = 0, _b = vtt.split('\r\n\r\n').map(function (c) { return c.trim(); }).slice(1); _i < _b.length; _i++) {
             var cue = _b[_i];
             lines = cue.split('\n');
             // first line is the timestamp
@@ -38,7 +38,7 @@ var VTT = /** @class */ (function () {
                 start: start,
                 end: end,
                 // the rest is subtitle
-                subtitle: lines.join('\n')
+                subtitle: lines.join('\n'),
             });
         }
         return subs;
@@ -57,9 +57,9 @@ var VTT = /** @class */ (function () {
                 _this.$element.text('');
                 return;
             }
-            time += _this.int;
+            time += _this.refreshRate;
             // if new line arrives
-            if (_this.subtitles[next].start < time + _this.int) {
+            if (_this.subtitles[next].start < time + _this.refreshRate) {
                 _this.$element.text(_this.subtitles[next++].subtitle);
                 return;
             }
@@ -67,11 +67,11 @@ var VTT = /** @class */ (function () {
             if (next) {
                 end = _this.subtitles[next - 1].end;
                 // if the subtitle just ended
-                if (time - _this.int < end && end < time) {
+                if (time - _this.refreshRate < end && end < time) {
                     _this.$element.text('');
                 }
             }
-        }, this.int * 1000);
+        }, this.refreshRate * 1000);
     };
     return VTT;
 }());

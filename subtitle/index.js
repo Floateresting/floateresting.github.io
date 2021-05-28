@@ -1,7 +1,9 @@
 "use strict";
+// @ts-ignore
 var player;
-var $v = $('#vtt');
-var sub = new VTT($v);
+var $vtt = $('#vtt');
+var sub = new VTT($vtt);
+// @ts-ignore
 function onPlayerStateChange(_a) {
     var target = _a.target, data = _a.data;
     switch (data) {
@@ -20,6 +22,6 @@ function onYouTubeIframeAPIReady() {
         videoId: '26W2_I64nlA',
         events: {
             'onStateChange': onPlayerStateChange,
-        }
+        },
     });
 }

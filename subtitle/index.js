@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function getSubtitles(path) {
+function getFile(path) {
     return __awaiter(this, void 0, void 0, function () {
         var s;
         return __generator(this, function (_a) {
@@ -54,7 +54,7 @@ function getSubtitles(path) {
 var player;
 var $vtt = $('#vtt');
 var sub;
-getSubtitles('./LuckyStar.vtt').then(function (s) {
+getFile('./LuckyStar.vtt').then(function (s) {
     sub = new VTT($vtt, s);
 });
 // @ts-ignore

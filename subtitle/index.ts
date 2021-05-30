@@ -1,6 +1,6 @@
 declare const YT: any;
 
-async function getSubtitles(path: string){
+async function getFile(path: string){
     let s = '';
     await $.get(path, f => s = f);
     return s;
@@ -10,7 +10,7 @@ async function getSubtitles(path: string){
 let player: YT.Player;
 let $vtt = $('#vtt');
 let sub: VTT;
-getSubtitles('./LuckyStar.vtt').then(s => {
+getFile('./LuckyStar.vtt').then(s => {
     sub = new VTT($vtt, s);
 });
 

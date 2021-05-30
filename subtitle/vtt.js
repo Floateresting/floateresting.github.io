@@ -4,11 +4,11 @@ var VTT = /** @class */ (function () {
         this.interval = 0;
         this.refreshRate = 0.1;
         this.subtitles = this.parse(subtitles);
-        this.$element = $element.css('display', '').text('');
+        this.$display = $element.css('display', '').text('');
     }
-    VTT.prototype.toSeconds = function (t) {
+    VTT.prototype.toSeconds = function (timeline) {
         var s = 0.0;
-        t.split(':').forEach(function (p) { return s = s * 60 + parseFloat(p); });
+        timeline.split(':').forEach(function (p) { return s = s * 60 + parseFloat(p); });
         return s;
     };
     VTT.prototype.getIndex = function (time) {
@@ -38,7 +38,7 @@ var VTT = /** @class */ (function () {
                 start: start,
                 end: end,
                 // the rest is subtitle
-                subtitle: lines.join('\n'),
+                content: lines.join('\n'),
             });
         }
         return subs;
@@ -54,13 +54,13 @@ var VTT = /** @class */ (function () {
             // stop the interval when reaches the end
             if (next == _this.subtitles.length) {
                 _this.stop();
-                _this.$element.text('');
+                _this.$display.text('');
                 return;
             }
             time += _this.refreshRate;
             // if new line arrives
             if (_this.subtitles[next].start < time + _this.refreshRate) {
-                _this.$element.text(_this.subtitles[next++].subtitle);
+                _this.$display.text(_this.subtitles[next++].content);
                 return;
             }
             // no need to remove the subtitle if it's the 0th one
@@ -68,7 +68,7 @@ var VTT = /** @class */ (function () {
                 end = _this.subtitles[next - 1].end;
                 // if the subtitle just ended
                 if (time - _this.refreshRate < end && end < time) {
-                    _this.$element.text('');
+                    _this.$display.text('');
                 }
             }
         }, this.refreshRate * 1000);

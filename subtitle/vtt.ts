@@ -1,23 +1,23 @@
 interface Subtitle{
     start: number;
     end: number;
-    subtitle: string;
+    content: string;
 }
 
 class VTT{
     subtitles: Subtitle[];
-    $element: JQuery;
+    $display: JQuery;
     interval: number = 0;
     refreshRate = 0.1;
 
     constructor($element: JQuery, subtitles: string){
         this.subtitles = this.parse(subtitles);
-        this.$element = $element.css('display', '').text('');
+        this.$display = $element.css('display', '').text('');
     }
 
-    private toSeconds(t: string): number{
+    private toSeconds(timeline: string): number{
         let s = 0.0;
-        t.split(':').forEach(p => s = s * 60 + parseFloat(p));
+        timeline.split(':').forEach(p => s = s * 60 + parseFloat(p));
         return s;
     }
 
@@ -47,7 +47,7 @@ class VTT{
                 start: start,
                 end: end,
                 // the rest is subtitle
-                subtitle: lines.join('\n'),
+                content: lines.join('\n'),
             });
         }
 
@@ -65,7 +65,7 @@ class VTT{
             // stop the interval when reaches the end
             if(next == this.subtitles.length){
                 this.stop();
-                this.$element.text('');
+                this.$display.text('');
                 return;
             }
 
@@ -73,7 +73,7 @@ class VTT{
 
             // if new line arrives
             if(this.subtitles[next].start < time + this.refreshRate){
-                this.$element.text(this.subtitles[next++].subtitle);
+                this.$display.text(this.subtitles[next++].content);
                 return;
             }
             // no need to remove the subtitle if it's the 0th one
@@ -81,7 +81,7 @@ class VTT{
                 end = this.subtitles[next - 1].end;
                 // if the subtitle just ended
                 if(time - this.refreshRate < end && end < time){
-                    this.$element.text('');
+                    this.$display.text('');
                 }
             }
         }, this.refreshRate * 1000);

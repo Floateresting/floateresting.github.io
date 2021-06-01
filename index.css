@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Source+Sans+Pro&display=swap');
+
 :root{
     --accent: #39c5bb;
 }
+
 
 html{
     background-color: black;

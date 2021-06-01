@@ -1,8 +1,9 @@
-:root {
-    --accent:#39c5bb;
+:root{
+    --accent: #39c5bb;
 }
 
-html {
+html{
     background-color: black;
     color: white;
+    font-family: 'Source Sans Pro', 'Kosugi Maru', sans-serif;
 }

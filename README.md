@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="./index.css">
+
 # Floateresting.github.io
 - url to this GitHub repo: [here](https://github.com/Floateresting/floateresting.github.io)
 - url to the website: [here](https://floateresting.github.io/)

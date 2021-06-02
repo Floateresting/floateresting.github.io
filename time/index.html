@@ -4,24 +4,27 @@
 <head>
 	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<link rel="stylesheet" type="text/css" href="../index.css">
-	<link rel="stylesheet" type="text/css" href="./index.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<title>Time</title>
 </head>
 
 <body>
-<div class="input">
-	<label for="from">From:</label>
-	<input id="from" type="number">
-</div>
-<div class="input">
-	<label for="diff">Diff:</label>
-	<input id="diff" type="number">
-</div>
-<div class="input">
-	<label for="to">To:</label>
-	<input id="to" type="number">
-</div>
+<table>
+	<tr>
+		<th>Start</th>
+		<th>End</th>
+		<th>Difference</th>
+	</tr>
+	<tr id="subtract">
+		<td class="input1">20210501</td>
+		<td class="input2">20210524</td>
+		<td class="output" colspan="2"></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
 </body>
 
 <script type="application/javascript" src="./index.js"></script>

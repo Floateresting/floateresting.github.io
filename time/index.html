@@ -9,23 +9,24 @@
 </head>
 
 <body>
-<table>
+<table id="subtract">
 	<tr>
 		<th>Start</th>
 		<th>End</th>
-		<th>Difference</th>
+		<th>Diff (days)</th>
 	</tr>
-	<tr id="subtract">
-		<td class="input1">20210501</td>
-		<td class="input2">20210524</td>
+	<tr>
+		<td class="input" contenteditable="true">20210501</td>
+		<td class="input" contenteditable="true">20210524</td>
 		<td class="output" colspan="2"></td>
 	</tr>
 	<tr>
-		<td></td>
-		<td></td>
+		<td class="timestamp"></td>
+		<td class="timestamp"></td>
 	</tr>
 </table>
 </body>
 
+<script type="application/javascript" src="./time.js"></script>
 <script type="application/javascript" src="./index.js"></script>
 </html>

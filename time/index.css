@@ -1,3 +1,7 @@
 table{
-    border-color: white;
+    border-collapse: collapse;
+}
+
+td,th{
+    border: solid 2px white;
 }

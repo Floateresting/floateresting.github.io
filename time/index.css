@@ -1,7 +1,12 @@
+body{
+    font-size: 4em;
+}
+
 table{
     border-collapse: collapse;
 }
 
-td,th{
+td, th{
+    padding: 30px;
     border: solid 2px white;
 }

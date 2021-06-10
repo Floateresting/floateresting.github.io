@@ -17,7 +17,7 @@ class Time{
      * ms to day
      */
     static itod(i: number){
-        return i / 864000;
+        return i / 86400;
     }
 
     /**

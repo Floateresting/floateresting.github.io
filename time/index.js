@@ -2,7 +2,7 @@
 var s = $('#subtract');
 var sinput = s.find('.input');
 var stime = s.find('.timestamp');
-var getTime = function (d) { return d.getTime() / 100; };
+var getTime = function (d) { return d.getTime() / 1000; };
 sinput.on('input', function () {
     // convert to dates and check of all dates are valid
     var dates = Array.from(sinput).map(function (e) { return Time.stod(e.innerText.replace(/\s/g, '')); });

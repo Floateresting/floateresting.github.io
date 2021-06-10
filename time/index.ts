@@ -2,7 +2,7 @@ let s = $('#subtract');
 let sinput = s.find('.input');
 let stime = s.find('.timestamp');
 
-let getTime = (d: Date) => d.getTime() / 100;
+let getTime = (d: Date) => d.getTime() / 1000;
 
 sinput.on('input', () => {
     // convert to dates and check of all dates are valid

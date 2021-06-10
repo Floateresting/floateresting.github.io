@@ -18,7 +18,7 @@ var Time = /** @class */ (function () {
      * ms to day
      */
     Time.itod = function (i) {
-        return i / 864000;
+        return i / 86400;
     };
     /**
      * add day to Date

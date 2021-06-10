@@ -1,5 +1,5 @@
 body{
-    font-size: 4em;
+    font-size: 3em;
 }
 
 table{
@@ -8,5 +8,6 @@ table{
 
 td, th{
     padding: 30px;
+    text-align: center;
     border: solid 2px white;
 }

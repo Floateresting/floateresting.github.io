@@ -12,7 +12,7 @@ class VTT{
 
     constructor($element: JQuery, subtitles: string){
         this.subtitles = this.parse(subtitles);
-        this.$display = $element.css('display', '').text('');
+        this.$display = $element.css('display', '').html('');
     }
 
     private toSeconds(timeline: string): number{
@@ -65,7 +65,7 @@ class VTT{
             // stop the interval when reaches the end
             if(next == this.subtitles.length){
                 this.stop();
-                this.$display.text('');
+                this.$display.html('');
                 return;
             }
 
@@ -73,7 +73,7 @@ class VTT{
 
             // if new line arrives
             if(this.subtitles[next].start < time + this.refreshRate){
-                this.$display.text(this.subtitles[next++].content);
+                this.$display.html(this.subtitles[next++].content);
                 return;
             }
             // no need to remove the subtitle if it's the 0th one
@@ -81,7 +81,7 @@ class VTT{
                 end = this.subtitles[next - 1].end;
                 // if the subtitle just ended
                 if(time - this.refreshRate < end && end < time){
-                    this.$display.text('');
+                    this.$display.html('');
                 }
             }
         }, this.refreshRate * 1000);

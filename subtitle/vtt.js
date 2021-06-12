@@ -4,7 +4,7 @@ var VTT = /** @class */ (function () {
         this.interval = 0;
         this.refreshRate = 0.1;
         this.subtitles = this.parse(subtitles);
-        this.$display = $element.css('display', '').text('');
+        this.$display = $element.css('display', '').html('');
     }
     VTT.prototype.toSeconds = function (timeline) {
         var s = 0.0;
@@ -54,13 +54,13 @@ var VTT = /** @class */ (function () {
             // stop the interval when reaches the end
             if (next == _this.subtitles.length) {
                 _this.stop();
-                _this.$display.text('');
+                _this.$display.html('');
                 return;
             }
             time += _this.refreshRate;
             // if new line arrives
             if (_this.subtitles[next].start < time + _this.refreshRate) {
-                _this.$display.text(_this.subtitles[next++].content);
+                _this.$display.html(_this.subtitles[next++].content);
                 return;
             }
             // no need to remove the subtitle if it's the 0th one
@@ -68,7 +68,7 @@ var VTT = /** @class */ (function () {
                 end = _this.subtitles[next - 1].end;
                 // if the subtitle just ended
                 if (time - _this.refreshRate < end && end < time) {
-                    _this.$display.text('');
+                    _this.$display.html('');
                 }
             }
         }, this.refreshRate * 1000);

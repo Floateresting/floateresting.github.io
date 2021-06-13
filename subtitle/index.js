@@ -35,6 +35,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+// './LuckyStar.vtt' '26W2_I64nlA'
+var VTTPATH = './Danshikousei.vtt';
+var YTID = 'fGhnitjA1Ks';
 function getFile(path) {
     return __awaiter(this, void 0, void 0, function () {
         var s;
@@ -54,7 +57,7 @@ function getFile(path) {
 var player;
 var $vtt = $('#vtt');
 var sub;
-getFile('./LuckyStar.vtt').then(function (s) {
+getFile(VTTPATH).then(function (s) {
     sub = new VTT($vtt, s);
 });
 // @ts-ignore
@@ -73,7 +76,7 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: 720,
         width: 1280,
-        videoId: '26W2_I64nlA',
+        videoId: YTID,
         events: {
             'onStateChange': onPlayerStateChange,
         },

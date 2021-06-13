@@ -1,5 +1,9 @@
 declare const YT: any;
 
+// './LuckyStar.vtt' '26W2_I64nlA'
+const VTTPATH = './Danshikousei.vtt'
+const YTID = 'fGhnitjA1Ks'
+
 async function getFile(path: string){
     let s = '';
     await $.get(path, f => s = f);
@@ -10,7 +14,7 @@ async function getFile(path: string){
 let player: YT.Player;
 let $vtt = $('#vtt');
 let sub: VTT;
-getFile('./LuckyStar.vtt').then(s => {
+getFile(VTTPATH).then(s => {
     sub = new VTT($vtt, s);
 });
 
@@ -30,7 +34,7 @@ function onYouTubeIframeAPIReady(){
     player = new YT.Player('player', {
         height: 720,
         width: 1280,
-        videoId: '26W2_I64nlA',
+        videoId: YTID,
         events: {
             'onStateChange': onPlayerStateChange,
         },

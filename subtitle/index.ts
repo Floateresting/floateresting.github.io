@@ -1,6 +1,6 @@
 declare const YT: any;
 
-// './LuckyStar.vtt' '26W2_I64nlA'
+// './LuckyStar.vtt' '26W2_I64nlA' Lucky Star episode 02 at 14:08
 const VTTPATH = './Danshikousei.vtt'
 const YTID = 'fGhnitjA1Ks'
 

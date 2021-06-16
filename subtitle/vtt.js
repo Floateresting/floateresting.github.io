@@ -27,7 +27,7 @@ var VTT = /** @class */ (function () {
         var lines;
         var start, end;
         // slice(1) because the first line is 'WEBVTT'
-        for (var _i = 0, _b = vtt.split('\r\n\r\n').map(function (c) { return c.trim(); }).slice(1); _i < _b.length; _i++) {
+        for (var _i = 0, _b = vtt.split(/\n\r?\n\r?/).map(function (c) { return c.trim(); }).slice(1); _i < _b.length; _i++) {
             var cue = _b[_i];
             lines = cue.split('\n');
             // first line is the timestamp

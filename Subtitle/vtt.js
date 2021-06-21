@@ -41,7 +41,7 @@ var VTT = /** @class */ (function () {
                 content: lines.join('\n'),
             });
         }
-        if (!subs)
+        if (!subs.length)
             throw Error('subtitle is empty!');
         return subs;
     };

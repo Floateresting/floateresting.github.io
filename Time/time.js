@@ -29,3 +29,4 @@ var Time = /** @class */ (function () {
     };
     return Time;
 }());
+//# sourceMappingURL=time.js.map

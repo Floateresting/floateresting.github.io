@@ -14,3 +14,4 @@ sinput.on('input', function () {
     stime[1].innerText = end.toString();
     s.find('.output').text(Time.itod(diff));
 });
+//# sourceMappingURL=index.js.map

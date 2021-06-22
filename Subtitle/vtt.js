@@ -77,3 +77,4 @@ var VTT = /** @class */ (function () {
     };
     return VTT;
 }());
+//# sourceMappingURL=vtt.js.map

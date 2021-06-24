@@ -2,7 +2,7 @@
 var VTT = /** @class */ (function () {
     function VTT($element, subtitles) {
         this.interval = 0;
-        this.refreshRate = 0.1;
+        this.refreshRate = 0.5;
         this.subtitles = this.parse(subtitles);
         this.$display = $element.css('display', '').html('');
     }

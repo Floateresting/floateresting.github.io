@@ -4,3 +4,6 @@
 [submodule "Yomikata"]
 	path = Yomikata
 	url = https://github.com/Floaterest/Yomikata.git
+[submodule "Timetable"]
+	path = Timetable
+	url = https://github.com/Floaterest/Timetable.git

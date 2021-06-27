@@ -7,3 +7,6 @@
 [submodule "Timetable"]
 	path = Timetable
 	url = https://github.com/Floaterest/Timetable.git
+[submodule "Games"]
+	path = Games
+	url = https://github.com/Floaterest/Games.git

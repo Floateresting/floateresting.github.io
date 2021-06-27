@@ -1,3 +1,6 @@
 [submodule "Kashi"]
 	path = Kashi
 	url = https://github.com/Floaterest/Kashi.git
+[submodule "Yomikata"]
+	path = Yomikata
+	url = https://github.com/Floaterest/Yomikata.git
